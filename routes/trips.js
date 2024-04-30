@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const tripsCtrl = require('../controllers/trips')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', tripsCtrl.index);
 
 module.exports = router;
