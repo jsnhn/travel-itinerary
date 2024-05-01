@@ -2,6 +2,7 @@ const Trip = require('../models/trip')
 
 module.exports = {
     index,
+    new: newTrip,
 }
 
 async function index(req, res) {
@@ -15,3 +16,9 @@ async function index(req, res) {
         res.send(err.message)
     }
 }
+
+async function newTrip(req, res) {
+    res.render('trips/new'), {
+        title: 'Plan a New Trip'
+    }
+};
