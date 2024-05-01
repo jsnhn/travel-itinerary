@@ -1,16 +1,23 @@
 <%- include('../partials/header') %>
 <h1>Start a New Plan</h1>
 
-<form action="/trips" method="POST" autocomplete="off">
-    <label> Location:
-        <input type="text" name="location">
-    </label>
-    <label> Start date:
-        <input type="date" name="start date">
-    </label>
-    <label> End Date:
-        <input type="date" name="end date">
-    </label>
-</form>
+
+
+
+    <form action="/trips" method="POST" autocomplete="off" class="new-trip">
+        <label> Location:
+            <input type="text" name="location">
+        </label>
+        <label> Start date:
+            <input type="date" name="startDate">
+        </label>
+        <label> End Date:
+            <input type="date" name="endDate">
+        </label>
+        <button type="submit">Start Planning</button>
+    </form>
+   
+    
+
 
 <%- include('../partials/footer') %>

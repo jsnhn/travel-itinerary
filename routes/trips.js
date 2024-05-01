@@ -4,6 +4,8 @@ const tripsCtrl = require('../controllers/trips')
 
 /* GET users listing. */
 router.get('/', tripsCtrl.index);
-router.get('/new', tripsCtrl.new)
+router.get('/new', tripsCtrl.new);
+router.post('/', tripsCtrl.create);
+router.get('/:id', tripsCtrl.show);
 
 module.exports = router;
