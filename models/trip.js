@@ -17,8 +17,8 @@ const tripSchema = new Schema({
         ref: 'User',
         required: true,
     },
-    flights: [flightSchema],
-    hotels: [hotelSchema],
+    // flights: [flightSchema],
+    // hotels: [hotelSchema],
 }, {
     timestamps: true
 });
