@@ -9,7 +9,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const trips = await Trip.find({});
+        const trips = await Trip.find({ user: req.user._id });  // trips for the currently authenticated user
         res.render('trips/index', {
             trips,
         });

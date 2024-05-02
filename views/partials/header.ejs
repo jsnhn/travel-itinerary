@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Itinerary</title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-    </head>
-    <body>
-        <nav>
-            <a href="/" class="home-nav">home</a> 
+<head>
+    <title>Itinerary</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <nav>
+        <a href="/" class="home-nav">Home</a> |
+        
+        <% if (user) { %>
+            <a href="/trips">My Itinerary</a> 
             |
-            <a href="/trips"">All Itneraries</a>
-            |
-            <% if (user) { %>
             <a href="/logout">Log Out</a>
-            <% } else { %>
-                <a href="/auth/google" class="login">Log In</a>
-            <% } %>
-        </nav>
+        <% } else { %>
+            <a href="/auth/google" class="login">Log In</a>
+        <% } %>
+    </nav>
