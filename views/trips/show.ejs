@@ -1,6 +1,13 @@
 <%- include('../partials/header') %>
+
 <h2><%= trips.location %> </h2>
+
 <h3><%= trips.startDate.toLocaleDateString(undefined, { weekday: 'long' }) %>, <%= trips.startDate.toLocaleDateString() %></h3>
+<form action="/movies/<%= trips._id %>">
+    <input type="text" name="location">
+    <button type="submit">Add</button>
+</form>
+
 <h3><%= trips.endDate.toLocaleDateString(undefined, { weekday: 'long' }) %>, <%= trips.endDate.toLocaleDateString() %></h3>
 
 <%- include('../partials/footer') %>
