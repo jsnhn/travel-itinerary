@@ -27,6 +27,21 @@ async function newTrip(req, res) {
 
 async function create(req, res) {
     req.body.user = req.user._id
+    req.body.startDate += 'T00:00';
+    req.body.endDate += 'T00:00';
+    
+    // function getDatesBetween(startDate, endDate) {
+    //     let dates = [];
+    //     let currentDate = new Date(startDate);
+
+    //     while (currentDate <= endDate) {
+    //         dates.push(new Date(currentDate));
+    //         currentDate.setDate(currentDate.getDate() + 1);
+    //     }
+
+    //     return dates;
+    //     }
+
     try {
         const trip = await Trip.create(req.body)
         res.redirect(`/trips/${trip._id}`)
