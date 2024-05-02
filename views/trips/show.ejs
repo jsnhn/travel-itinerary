@@ -7,7 +7,13 @@
     <input type="text" name="location">
     <button type="submit">Add</button>
 </form> -->
+<ul>
+    <% datesBetween.forEach(date => { %>
+        <li><%= date.toLocaleDateString() %></li>
+    <% }) %>
+</ul>
 
 <h3><%= trips.endDate.toLocaleDateString(undefined, { weekday: 'long' }) %>, <%= trips.endDate.toLocaleDateString() %></h3>
+
 
 <%- include('../partials/footer') %>

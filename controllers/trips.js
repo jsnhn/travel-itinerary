@@ -7,6 +7,7 @@ module.exports = {
     show,
 }
 
+
 async function index(req, res) {
     try {
         const trips = await Trip.find({ user: req.user._id });  // trips for the currently authenticated user
@@ -26,42 +27,44 @@ async function newTrip(req, res) {
 };
 
 async function create(req, res) {
-    req.body.user = req.user._id
+    req.body.user = req.user._id;
     req.body.startDate += 'T00:00';
     req.body.endDate += 'T00:00';
-    
-    // function getDatesBetween(startDate, endDate) {
-    //     let dates = [];
-    //     let currentDate = new Date(startDate);
-
-    //     while (currentDate <= endDate) {
-    //         dates.push(new Date(currentDate));
-    //         currentDate.setDate(currentDate.getDate() + 1);
-    //     }
-
-    //     return dates;
-    //     }
 
     try {
-        const trip = await Trip.create(req.body)
-        res.redirect(`/trips/${trip._id}`)
+        const trip = await Trip.create(req.body);
+
+        res.redirect(`/trips/${trip._id}`);
     } catch(err) {
-        console.log(err)
+        console.log(err);
         res.render('trips/new', {
             errorMsg: err.message
-        })
+        });
     }
 }
 
 async function show(req, res) {
-    try{
-        const trips = await Trip.findById(req.params.id)
 
+    function getDatesBetween(startDate, endDate) {
+        let dates = [];
+        let currentDate = new Date(startDate);
+    
+        while (currentDate <= endDate) {
+            dates.push(new Date(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+    
+        return dates;
+    }
+    try {
+        const trip = await Trip.findById(req.params.id);
+        const datesBetween = getDatesBetween(trip.startDate, trip.endDate);
         res.render('trips/show', {
-            trips,
-        })
+            trips: trip,  // Passing the trip object as 'trips' to maintain consistency
+            datesBetween
+        });
     } catch(err) {
-        console.log(err)
-        res.redirect('/trips')
+        console.log(err);
+        res.redirect('/trips');
     }
 }
