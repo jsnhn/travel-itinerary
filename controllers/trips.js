@@ -59,8 +59,11 @@ async function show(req, res) {
     try {
         const trip = await Trip.findById(req.params.id);
         const datesBetween = getDatesBetween(trip.startDate, trip.endDate);
+
+        console.log("Dates Between:", datesBetween);
+
         res.render('trips/show', {
-            trips: trip,  // Passing the trip object as 'trips' to maintain consistency
+            trips: trip,
             datesBetween
         });
     } catch(err) {
