@@ -2,15 +2,19 @@
 
 <h2><%= trip.location %> </h2>
 
-
 <form action="/trips/<%= trip._id %>/excursions" method="POST">
     <% datesBetween.forEach(date => { %>
         <div>
-            <span><%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %></span>
+            <%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %>
             <input type="text" name="activity" placeholder="Add activity...">
             <button type="submit">Add</button>
         </div>
     <% }) %>
 </form>
+<ul>
+    <% trip.excursions.forEach(excursion => { %>
+        <li><%= excursion.activity %></li>
+    <% }); %>
+</ul>
 
 <%- include('../partials/footer') %>

@@ -5,26 +5,20 @@ module.exports = {
 }
 
 async function create(req, res) {
-    const trip = await Trip.findById(req.params.id);
     
-    // Assuming req.body.activity contains the activity for the excursion
-    const activity = req.body.activity;
+    const activities = req.body.activity.filter(activity => activity);  // Filter out empty strings from the activity array
 
-    // Ensure activity is a string
-    if (typeof activity === 'string') {
-        // Push the activity to the excursions array
-        trip.excursions.push({ activity });
+    const activityString = activities.join(', ');  // Join the activities into a single string
 
-        try {
-            await trip.save();
-            res.redirect(`/trips/${trip._id}`);
-        } catch(err) {
-            console.log(err);
-            res.redirect('/trips');
-        }
-    } else {
-        // Handle invalid activity
-        console.log('Invalid activity:', activity);
-        res.redirect('/trips');
+    // Now activityString contains all non-empty activities as a single string
+
+    const trip = await Trip.findById(req.params.id);
+    trip.excursions.push({ activity: activityString });
+    
+    try {
+        await trip.save();
+    } catch(err) {
+        console.log(err);
     }
+    res.redirect(`/trips/${trip._id}`);
 }
