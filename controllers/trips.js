@@ -63,7 +63,7 @@ async function show(req, res) {
         console.log("Dates Between:", datesBetween);
 
         res.render('trips/show', {
-            trips: trip,
+            trip,
             datesBetween
         });
     } catch(err) {

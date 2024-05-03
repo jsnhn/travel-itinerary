@@ -1,18 +1,16 @@
 <%- include('../partials/header') %>
 
-<h2><%= trips.location %> </h2>
+<h2><%= trip.location %> </h2>
 
 
-
-<h3>
+<form action="/trips/<%= trip._id %>/excursions" method="POST">
     <% datesBetween.forEach(date => { %>
-        <li>
-            <%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %>
+        <div>
+            <span><%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %></span>
             <input type="text" name="activity" placeholder="Add activity...">
-        </li>
+            <button type="submit">Add</button>
+        </div>
     <% }) %>
-</h3>
-
-
+</form>
 
 <%- include('../partials/footer') %>
