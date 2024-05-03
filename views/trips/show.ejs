@@ -2,19 +2,24 @@
 
 <h2><%= trip.location %> </h2>
 
-<form action="/trips/<%= trip._id %>/excursions" method="POST">
-    <% datesBetween.forEach(date => { %>
+<% datesBetween.forEach(date => { %>
+    <% const dateValue = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`%>
+    <form action="/trips/<%= trip._id %>/excursions" method="POST">
         <div>
             <%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %>
             <ul>
-                <% trip.excursions.forEach(excursion => { %>
+                <% const dateExcursions = trip.excursions.filter(exc => date.getFullYear() === exc.activityDate.getFullYear()
+                    && date.getMonth() === exc.activityDate.getMonth()
+                    && date.getDate() === exc.activityDate.getDate()) %>
+                <% dateExcursions.forEach(excursion => { %>
                     <li><%= excursion.activity %></li>
                 <% }); %>
             </ul>
             <input type="text" name="activity" placeholder="Add activity...">
+            <input type="hidden" value="<%= dateValue %>" name="activityDate">
             <button type="submit">Add</button>
         </div>
-    <% }) %>
-</form>
+    </form>
+<% }) %>
 
 <%- include('../partials/footer') %>

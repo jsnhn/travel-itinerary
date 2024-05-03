@@ -5,11 +5,12 @@ module.exports = {
 }
 
 async function create(req, res) {
-    const activities = req.body.activity.filter(activity => activity);  // Filter out empty strings from the activity array
-    const activityString = activities.join(', ');  // Join the activities into a single string. activityString contains all non-empty activities as a single string
+    req.body.activityDate = new Date(req.body.activityDate)
+    console.log('req.body: ', req.body)
     const trip = await Trip.findById(req.params.id);
-    
-    trip.excursions.push({ activity: activityString });
+
+
+    trip.excursions.push(req.body);
     
     try {
         await trip.save();

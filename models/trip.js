@@ -6,6 +6,10 @@ const excursionSchema = new Schema ({
         type: String,
         required: true
     }, 
+    activityDate: {
+        type: Date,
+        required: true
+    },
 }, {
     timestamps: true
 });
@@ -26,7 +30,7 @@ const tripSchema = new Schema({
         ref: 'User',
         required: true,
     },
-    excursions: [excursionSchema,]
+    excursions: [excursionSchema],
     // flights: [flightSchema],
     // hotels: [hotelSchema],
 }, {
