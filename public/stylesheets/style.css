@@ -1,6 +1,10 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   background-image: url('https://images.unsplash.com/photo-1580137189272-c9379f8864fd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+
 }
 
 a {
@@ -11,4 +15,19 @@ a {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+nav {
+  height: 30px;
+}
+
+.logout {
+  float: right;
+}
+.itinerary-nav {
+  float: right;
+  margin-right: 1%;
+}
+.login {
+  float: right;
 }

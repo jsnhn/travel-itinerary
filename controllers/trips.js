@@ -37,7 +37,7 @@ async function create(req, res) {
         res.redirect(`/trips/${trip._id}`);
     } catch(err) {
         console.log(err);
-        res.render('trips/new', {
+            res.render('trips/new', {
             errorMsg: err.message
         });
     }

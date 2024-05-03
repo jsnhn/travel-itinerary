@@ -6,12 +6,11 @@
 </head>
 <body>
     <nav>
-        <a href="/" class="home-nav">Home</a> |
-        
+        <a href="/">Home</a> 
         <% if (user) { %>
-            <a href="/trips">My Itinerary</a> 
-            |
-            <a href="/logout">Log Out</a>
+            <a href="/logout" class="logout" >Log Out</a>
+            
+            <a href="/trips" class="itinerary-nav">My Itinerary</a> 
         <% } else { %>
             <a href="/auth/google" class="login">Log In</a>
         <% } %>

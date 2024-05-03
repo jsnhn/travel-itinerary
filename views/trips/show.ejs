@@ -6,15 +6,15 @@
     <% datesBetween.forEach(date => { %>
         <div>
             <%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %>
+            <ul>
+                <% trip.excursions.forEach(excursion => { %>
+                    <li><%= excursion.activity %></li>
+                <% }); %>
+            </ul>
             <input type="text" name="activity" placeholder="Add activity...">
             <button type="submit">Add</button>
         </div>
     <% }) %>
 </form>
-<ul>
-    <% trip.excursions.forEach(excursion => { %>
-        <li><%= excursion.activity %></li>
-    <% }); %>
-</ul>
 
 <%- include('../partials/footer') %>
