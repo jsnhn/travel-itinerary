@@ -13,6 +13,10 @@
                     && date.getDate() === exc.activityDate.getDate()) %>
                 <% dateExcursions.forEach(excursion => { %>
                     <li><%= excursion.activity %></li>
+                    <form action="/trips/<%= excursion._id %>?_method=DELETE" 
+                        class="delete-form" method="POST">
+                        <button type="submit">X</button>
+                    </form>
                 <% }); %>
             </ul>
             <input type="text" name="activity" placeholder="Add activity...">
