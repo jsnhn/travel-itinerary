@@ -26,7 +26,6 @@ async function deleteExcursion(req, res) {
     console.log('Excursion ID:', req.params.id);
     try {
         const trip = await Trip.findOne({'excursions._id': req.params.id});
-        console.log('Trip:', trip);
         trip.excursions.remove(req.params.id);
         await trip.save();
         res.redirect(`/trips/${trip._id}`);
