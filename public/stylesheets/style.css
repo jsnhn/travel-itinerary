@@ -66,7 +66,6 @@ nav {
   text-decoration: none;
 }
 
-
 .circle {
   display: flex;
   justify-content: center;
@@ -82,6 +81,32 @@ nav {
   outline: white solid;
   background: transparent;
   transform: translate(600%, 5%);
+}
+
+.newPageHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.newPageForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newPageButton {
+  background-color: transparent;
+  border: white solid;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin: 4px 2px;
 }
 
 .delete-form {

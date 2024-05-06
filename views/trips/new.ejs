@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 
-<h1>Start a New Plan</h1>
+<h1 class="newPageHeader" >Plan a New Trip</h1>
 
+<div class="newPageForm" >
     <form action="/trips" method="POST" autocomplete="off" class="new-trip">
         <label> Location:
             <input type="text" name="location">
@@ -12,7 +13,7 @@
         <label> End Date:
             <input type="date" name="endDate">
         </label>
-        <button type="submit">Start Planning</button>
+        <button class="newPageButton" type="submit">Start Planning</button>
     </form>
-
+</div>
 <%- include('../partials/footer') %>
