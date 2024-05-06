@@ -2,16 +2,17 @@ const Trip = require('../models/trip');
 
 module.exports = {
     create,
-    delete: deletedExcursion,
+    delete: deleteExcursion,
 }
 
 async function create(req, res) {
+    const trip = await Trip.findById(req.params.id);
     req.body.activityDate = new Date(req.body.activityDate)
     console.log('req.body: ', req.body)
-    const trip = await Trip.findById(req.params.id);
-
-
+    
+    
     trip.excursions.push(req.body);
+    
     
     try {
         await trip.save();
@@ -21,14 +22,16 @@ async function create(req, res) {
     res.redirect(`/trips/${trip._id}`);
 };
 
-async function deletedExcursion(req, res) {
+async function deleteExcursion(req, res) {
+    console.log('Excursion ID:', req.params.id);
     try {
-        const trip = await Trip.findOne({'excursions._id': req.params.id})
-        trip.excursions.remove(req.params.id)
-        await trip.save()
-        res.redirect(`/trips/${trip._id}`)
+        const trip = await Trip.findOne({'excursions._id': req.params.id});
+        console.log('Trip:', trip);
+        trip.excursions.remove(req.params.id);
+        await trip.save();
+        res.redirect(`/trips/${trip._id}`);
     } catch(err) {
-        console.log(err)
+        console.log(err);
         res.redirect('/trips');
     }
 };
