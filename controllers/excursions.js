@@ -4,6 +4,7 @@ module.exports = {
     create,
     delete: deleteExcursion,
     edit,
+    update,
 }
 
 async function create(req, res) {
@@ -45,6 +46,20 @@ async function edit(req, res) {
             trip,
             excursion,
         });
+    } catch(err) {
+        console.log(err);
+        res.redirect('/trips');
+    }
+};
+
+async function update(req, res) {
+    try {
+        const trip = await Trip.findOneAndUpdate(
+            {'excursions._id': req.params.id},
+            {$set: {'excursions.$.activity': req.body.activity}},
+            {new: true}
+        );
+        res.redirect(`/trips/${trip._id}`);
     } catch(err) {
         console.log(err);
         res.redirect('/trips');
