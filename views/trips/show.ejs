@@ -12,12 +12,12 @@
             && date.getDate() === exc.activityDate.getDate()) %>
             <% dateExcursions.forEach(excursion => { %>
             <li>
-                <a href="/trips/<%= excursion.id %>/edit">
+                <a href="/trips/<%= excursion._id %>/edit">
                 <%= excursion.activity %>
+                </a>
                 <form action="/trips/<%= excursion._id %>?_method=DELETE" class="delete-form" method="POST">
                     <button type="submit">X</button>
                 </form> 
-                </a>
             </li>
             <% }); %>
         </ul>

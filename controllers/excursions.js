@@ -3,6 +3,7 @@ const Trip = require('../models/trip');
 module.exports = {
     create,
     delete: deleteExcursion,
+    edit,
 }
 
 async function create(req, res) {
@@ -34,3 +35,18 @@ async function deleteExcursion(req, res) {
         res.redirect('/trips');
     }
 };
+
+async function edit(req, res) {
+    try {
+        const trip = await Trip.findOne({'excursions._id': req.params.id});
+        const excursion = trip.excursions.find(exc => exc._id == req.params.id);
+    
+        res.render('trips/edit', {
+            trip,
+            excursion,
+        });
+    } catch(err) {
+        console.log(err);
+        res.redirect('/trips');
+    }
+}
