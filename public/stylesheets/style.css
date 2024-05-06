@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: white;
 }
 
 .new-trip {
@@ -35,17 +35,27 @@ nav {
 .splash-header {
   text-align: center;
   color: white;
+  margin-top: 20%;
 }
 
-.splash-link {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  color: white;
+.splashLine1 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px; 
+  margin-right: 100px;
 }
+.splashLine2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px; 
+  margin-left: 200px;
+}
+
 
 .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 100px;
   line-height: 100px;
@@ -55,6 +65,7 @@ nav {
   text-align: center;
   outline: white solid;
   background: transparent;
+  transform: translate(600%, 5%);
 }
 
 .delete-form {
