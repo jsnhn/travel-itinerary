@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+
 
 require('dotenv').config();
 require('./config/database')
@@ -47,7 +49,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/trips', tripsRouter);
-app.use('/', excursionsRouter);
+app.use('/', ensureLoggedIn, excursionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
