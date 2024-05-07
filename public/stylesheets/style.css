@@ -8,6 +8,7 @@ body {
 }
 
 a {
+  text-decoration: none;
   color: white;
 }
 
@@ -21,6 +22,11 @@ nav {
   height: 30px;
 }
 
+input {
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
 .logout {
   float: right;
 }
@@ -30,12 +36,21 @@ nav {
 }
 .login {
   float: right;
+  width: 65px;
+  height: 24px;
+  line-height: 22px;
+  border-radius: 24%;
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
+  outline: white solid 1px;
+  background: transparent;
 }
 
 .splash-header {
   text-align: center;
   color: white;
-  margin-top: 20%;
+  margin-top: 16%;
 }
 
 .splashLine1 {
@@ -80,7 +95,7 @@ nav {
   text-align: center;
   outline: white solid;
   background: transparent;
-  transform: translate(600%, 5%);
+  transform: translate(676%, 5%);
 }
 
 .newPageHeader {
