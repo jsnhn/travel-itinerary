@@ -1,10 +1,11 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url('https://images.unsplash.com/photo-1580137189272-c9379f8864fd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-repeat: no-repeat;
   background-attachment: fixed;
-
+  background-size: cover;
 }
 
 a {
@@ -22,9 +23,28 @@ nav {
   height: 30px;
 }
 
+hr {
+  border-top: 1px solid white;
+}
+
+.vl {
+  border-left: 1px solid white;
+  height: 900px;
+}
+
 input {
-  border: 2px solid white;
-  border-radius: 4px;
+  width: 50%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.showButton {
+  margin-bottom: 15px;
 }
 
 .logout {
@@ -45,6 +65,15 @@ input {
   text-align: center;
   outline: white solid 1px;
   background: transparent;
+}
+
+.splash-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
 }
 
 .splash-header {
@@ -95,7 +124,7 @@ input {
   text-align: center;
   outline: white solid;
   background: transparent;
-  transform: translate(676%, 5%);
+  transform: translate(242%, 5%);
 }
 
 .newPageHeader {
@@ -111,6 +140,16 @@ input {
   align-items: center;
 }
 
+.newPageForm input {
+  width: 90%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  margin-bottom: 10px;
+}
 .newPageButton {
   background-color: transparent;
   border: white solid;
@@ -130,9 +169,28 @@ input {
 }
 	
 .delete-form button {
-  color: red;
+  font-size: 10px;
+  color: white;
+  border-radius: 30%;
+  border: white solid 1px;
+  background-color: rgb(232, 232, 232);
 }
-	
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: transparent;
+  padding: 20px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
 /* li {
   list-style: none;
 } */

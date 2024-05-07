@@ -1,32 +1,43 @@
 <%- include('../partials/header') %>
-
-<h2><%= trip.location %> </h2>
-
-<% datesBetween.forEach(date => { %>
-    <% const dateValue = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`%>
-    <div>
-        <%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %>
-        <ul>
-            <% const dateExcursions = trip.excursions.filter(exc => date.getFullYear() === exc.activityDate.getFullYear()
-            && date.getMonth() === exc.activityDate.getMonth()
-            && date.getDate() === exc.activityDate.getDate()) %>
-            <% dateExcursions.forEach(excursion => { %>
-            <li>
-                <a href="/trips/<%= excursion._id %>/edit">
-                <%= excursion.activity %>
-                </a>
-                <form action="/trips/<%= excursion._id %>?_method=DELETE" class="delete-form" method="POST">
-                    <button type="submit">X</button>
-                </form> 
-            </li>
-            <% }); %>
-        </ul>
-        <form action="/trips/<%= trip._id %>/excursions" method="POST">
-            <input type="text" name="activity" placeholder="Add activity...">
-            <input type="hidden" value="<%= dateValue %>" name="activityDate">
-            <button type="submit">Add</button>
-        </form>
+<hr>
+<div class="container">
+    <div class="sidebar">
+        <div>Trip Overview</div>
+        <div>Flights</div>
+        <div>Hotels</div>
+        <div>Itinerary</div>
     </div>
-<% }) %>
+    <div class="vl"></div>
+    <div class="main-content">
+        <h2><%= trip.location %></h2>
+
+        <% datesBetween.forEach(date => { %>
+        <% const dateValue = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` %>
+        <div>
+            <%= date.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) %>
+            <ul>
+                <% const dateExcursions = trip.excursions.filter(exc => date.getFullYear() === exc.activityDate.getFullYear()
+                && date.getMonth() === exc.activityDate.getMonth()
+                && date.getDate() === exc.activityDate.getDate()) %>
+                <% dateExcursions.forEach(excursion => { %>
+                <li>
+                    <a href="/trips/<%= excursion._id %>/edit">
+                        <%= excursion.activity %>
+                    </a>
+                    <form action="/trips/<%= excursion._id %>?_method=DELETE" class="delete-form" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                </li>
+                <% }); %>
+            </ul>
+            <form action="/trips/<%= trip._id %>/excursions" method="POST">
+                <input type="text" name="activity" placeholder="Add activity...">
+                <input type="hidden" value="<%= dateValue %>" name="activityDate">
+                <button class="showButton" type="submit">Add</button>
+            </form>
+        </div>
+        <% }) %>
+    </div>
+</div>
 
 <%- include('../partials/footer') %>
