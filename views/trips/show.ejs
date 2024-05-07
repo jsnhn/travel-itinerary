@@ -2,14 +2,15 @@
 <hr>
 <div class="container">
     <div class="sidebar">
-        <div>Trip Overview</div>
-        <div>Flights</div>
-        <div>Hotels</div>
-        <div>Itinerary</div>
+        <div class="tripOverview">Trip Overview</div>
+        <div class="flightsSide">Flights</div>
+        <div class="hotelsSide">Hotels</div>
+        <div class="itinerarySide">Itinerary</div>
     </div>
     <div class="vl"></div>
     <div class="main-content">
-        <h2><%= trip.location %></h2>
+
+    <h2 class="showTitle">Trip to <%= trip.location %></h2>
 
         <% datesBetween.forEach(date => { %>
         <% const dateValue = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` %>

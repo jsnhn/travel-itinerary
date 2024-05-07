@@ -44,6 +44,11 @@ input {
 }
 
 .showButton {
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  border-radius: 60%;
+  border: white solid 1px;
+  background-color: transparent;
   margin-bottom: 15px;
 }
 
@@ -163,6 +168,15 @@ input {
   margin: 4px 2px;
 }
 
+.allItinerariesHeader {
+  color: white;
+}
+
+.showTitle {
+  color: white;
+  font-size: 30px;
+}
+
 .delete-form {
   display: inline-block;
   margin-right: 10px;
@@ -170,7 +184,7 @@ input {
 	
 .delete-form button {
   font-size: 10px;
-  color: white;
+  color: rgb(231, 150, 150);
   border-radius: 30%;
   border: white solid 1px;
   background-color: rgb(232, 232, 232);
@@ -186,9 +200,59 @@ input {
   padding: 20px;
 }
 
+.tripOverview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 41px;
+}
+
+.flightsSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12x;
+}
+.hotelsSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12x;
+}
+
+.itinerarySide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 .main-content {
   flex-grow: 1;
   padding: 20px;
+}
+
+.editHeader {
+  color: white;
+}
+
+.editInput {
+  width: 20%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  color: black;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
 /* li {
