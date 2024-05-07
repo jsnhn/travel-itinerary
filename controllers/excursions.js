@@ -55,9 +55,9 @@ async function edit(req, res) {
 async function update(req, res) {
     try {
         const trip = await Trip.findOneAndUpdate(
-            {'excursions._id': req.params.id},
-            {$set: {'excursions.$.activity': req.body.activity}},
-            {new: true}
+            {'excursions._id': req.params.id}, // find the document to update
+            {$set: {'excursions.$.activity': req.body.activity}}, //the $set operator sets the activity field of the matched excursion to the value provided in req.body.activity. The $ positional operator is used to specify which array element to update.
+            {new: true} //method should return the modified document rather than the original one.
         );
         res.redirect(`/trips/${trip._id}`);
     } catch(err) {
