@@ -74,7 +74,7 @@ input {
 
 .splash-container {
   position: absolute;
-  top: 50%;
+  top: 41%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -91,7 +91,7 @@ input {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px; 
-  margin-right: 100px;
+  margin-right: 117px;
 }
 .splashLine2 {
   font-size: 18px;
@@ -129,7 +129,7 @@ input {
   text-align: center;
   outline: white solid;
   background: transparent;
-  transform: translate(242%, 5%);
+  transform: translate(320%, 5%);
 }
 
 .newPageHeader {
