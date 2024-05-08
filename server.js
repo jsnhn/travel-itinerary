@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/trips', tripsRouter);
+app.use('/trips', ensureLoggedIn, tripsRouter);
 app.use('/', ensureLoggedIn, excursionsRouter);
 
 // catch 404 and forward to error handler
