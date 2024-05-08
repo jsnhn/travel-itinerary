@@ -6,16 +6,16 @@ The Travel Itinerary application provides users with a simple and succinct platf
 
 ## Technologies Used:
 
-Express
-MongoDB
-Node.js
-Google Oauth
+* Express
+* MongoDB
+* Node.js
+* Google Oauth
 
 ## Getting Starting:
 
 ## Next Steps:
 
-Expense Tracker
-Google Maps functionality
-Flights and lodging info linked to Gmail
-Invite tripmates to itineraries 
+* Expense Tracker
+* Google Maps functionality
+* Flights and lodging info linked to Gmail
+* Invite tripmates to itineraries 
