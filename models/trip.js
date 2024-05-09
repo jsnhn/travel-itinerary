@@ -21,6 +21,20 @@ const tripSchema = new Schema({
     },
     startDate: {
         type: Date,
+        required: true,
+        validate: {
+            validator: function(startDate) {
+                const date = new Date()
+                return (
+                    startDate && 
+                    (
+                        startDate > date || 
+                        startDate.toDateString() === date.toDateString()
+                    )
+                )
+            },
+            message: 'A trip start date cannot be before the current date.'
+        }
     },
     endDate: {
         type: Date,

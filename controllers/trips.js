@@ -28,9 +28,9 @@ async function newTrip(req, res) {
 
 async function create(req, res) {
     req.body.user = req.user._id;
-    req.body.startDate += 'T00:00';
+    req.body.startDate += 'T00:00'; //represents midnight time (00:00)
     req.body.endDate += 'T00:00';
-
+    
     try {
         const trip = await Trip.create(req.body);
 
