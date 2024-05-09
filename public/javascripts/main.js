@@ -1,12 +1,12 @@
 const startDateEl = document.querySelector('input[name="startDate"]') //selecting startDate attribute
 const endDateEl = document.querySelector('input[name="endDate"]');
 
-formatMinDate()
+formatMinStartDate()
 
-startDateEl.addEventListener('change', formatMaxDate);
+startDateEl.addEventListener('change', formatMinEndDate);
 
 
-function formatMinDate() {
+function formatMinStartDate() {
     const date = new Date();
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -19,8 +19,8 @@ function formatMinDate() {
 
 
     
-function formatMaxDate() {
-    const selectedStartDate = new Date(startDateEl.value);
+function formatMinEndDate() {
+    const selectedStartDate = new Date(startDateEl.value); //startDateEl.value retrieves the value (date) represents the min date for the end date
     const year = selectedStartDate.getFullYear();
     let month = selectedStartDate.getMonth() + 1;
     let day = selectedStartDate.getDate() + 1;
