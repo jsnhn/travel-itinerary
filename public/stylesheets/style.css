@@ -172,6 +172,12 @@ input {
   color: white;
 }
 
+.indexNewTrip {
+  margin-top: 5%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .showTitle {
   color: white;
   font-size: 30px;
