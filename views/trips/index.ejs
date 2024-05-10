@@ -5,9 +5,14 @@
     <ul>
         <% trips.forEach(function(trip) { %>
         <li>
-            <a href="/trips/<%= trip._id %>">
+            <a href="/trips/<%= trip._id %>" class="profileTrips">
             <%= trip.location %>
             </a>
+            <br>
+            <div class="profileDates">
+            <%= trip.startDate.toLocaleDateString(undefined, { month: 'long', day: 'numeric' }) %> -
+            <%= trip.endDate.toLocaleDateString(undefined, { day: 'numeric' }) %>
+            </div>
         </li>
         <% }); %>
     </ul>

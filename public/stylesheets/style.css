@@ -178,6 +178,17 @@ input {
   font-weight: bold;
 }
 
+.profileTrips {
+  color: white;
+  font-size: 18px;
+}
+
+.profileDates {
+  color: grey;
+  font-size: 12px;
+  margin-bottom: 1%;
+}
+
 .showTitle {
   color: white;
   font-size: 30px;
