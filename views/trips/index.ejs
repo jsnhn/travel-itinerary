@@ -8,6 +8,9 @@
             <a href="/trips/<%= trip._id %>" class="profileTrips">
             <%= trip.location %>
             </a>
+            <form action="/trips/<%= trip._id %>?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit">X</button>
+            </form>
             <br>
             <div class="profileDates">
             <%= trip.startDate.toLocaleDateString(undefined, { month: 'long', day: 'numeric' }) %> -

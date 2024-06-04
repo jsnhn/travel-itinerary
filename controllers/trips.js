@@ -5,6 +5,7 @@ module.exports = {
     new: newTrip,
     create,
     show,
+    delete: deleteTrip,
 }
 
 
@@ -33,7 +34,6 @@ async function create(req, res) {
     
     try {
         const trip = await Trip.create(req.body);
-
         res.redirect(`/trips/${trip._id}`);
     } catch(err) {
         console.log(err);
@@ -69,3 +69,14 @@ async function show(req, res) {
     }
 }
 
+
+async function deleteTrip(req, res) {
+    console.log('Trip Id: ', req.params.id)
+    try {
+        await Trip.findByIdAndDelete(req.params.id);
+        res.redirect('/trips')
+    } catch(err) {
+        console.log(err)
+        res.redirect('/trips')
+    }
+};
