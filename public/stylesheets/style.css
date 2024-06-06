@@ -198,6 +198,11 @@ input {
   font-size: 30px;
 }
 
+.showDate {
+  color: white;
+  font-size: 13px;
+}
+
 .delete-form {
   display: inline-block;
   margin-right: 10px;

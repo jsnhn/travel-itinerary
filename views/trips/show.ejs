@@ -10,7 +10,11 @@
     <div class="vl"></div>
     <div class="main-content">
 
-    <h2 class="showTitle">Trip to <%= trip.location %></h2>
+    <h2 class="showTitle">Trip to <%= trip.location %>
+        <div class="showDate" ><%= trip.startDate.toLocaleDateString(undefined, { month: 'long', day: 'numeric' }) %> -
+            <%= trip.endDate.toLocaleDateString(undefined, { day: 'numeric' }) %></div>
+    </h2>
+    
 
         <% datesBetween.forEach(date => { %>
         <% const dateValue = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` %>
