@@ -45,7 +45,7 @@ const tripSchema = new Schema({
         required: true,
     },
     excursions: [excursionSchema],
-    // flights: [flightSchema],
+    flights: [flightSchema],
     // hotels: [hotelSchema],
 }, {
     timestamps: true
